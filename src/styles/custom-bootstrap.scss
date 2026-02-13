@@ -1,0 +1,9 @@
+// Override Bootstrap variables BEFORE import
+$primary: #6333bd; // purple
+$success: #198754;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #9c27b0;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
