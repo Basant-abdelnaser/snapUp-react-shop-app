@@ -63,6 +63,8 @@ All product data is fetched dynamically from:
 ---
 
 ## 🗂️ Project Structure
+
+
 src/
 │
 ├── components/
