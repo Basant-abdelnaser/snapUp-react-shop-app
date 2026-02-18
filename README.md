@@ -1,24 +1,30 @@
 Mini E-Commerce Store
 
+
 A modern eCommerce web application built using React, Redux, and Bootstrap, powered by the DummyJSON API for product data.
 
 🚀 Live Demo
 
-https://snapupshop.netlify.app/
+
+  https://snapupshop.netlify.app/
 
 🛠️ Built With
 
-⚛️ React
 
-🗂️ Redux (State Management)
 
-🎨 Bootstrap 5
+   ⚛️ React
+   
+   🗂️ Redux (State Management)
+   
+   🎨 Bootstrap 5
+   
+   🌐 DummyJSON API
+   
+   🔄 React Router
+   
+   ✨ Features
 
-🌐 DummyJSON API
 
-🔄 React Router
-
-✨ Features
 
  Browse all products
 
