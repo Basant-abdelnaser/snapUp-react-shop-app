@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAllCategories } from "../services/productsService";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CgMenuRight } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
-const Navbar = ({ toggleSideMenu, setOption}) => {
-    const navigate = useNavigate();
+const Navbar = ({ toggleSideMenu, setOption }) => {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-    const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -24,10 +25,11 @@ const Navbar = ({ toggleSideMenu, setOption}) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Navigate to search page or filter products
-    navigate(`/search?query=${encodeURIComponent(search)}`);
+
+    navigate(`/?query=${searchTerm}`);
   };
   const firstFour = categories.slice(0, 4);
+  const cartItems = useSelector((state) => state.cart.items || []);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
@@ -54,7 +56,11 @@ const Navbar = ({ toggleSideMenu, setOption}) => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {firstFour.map((category, index) => (
               <li className="nav-item" key={index}>
-                <div className="nav-link" onClick={() => setOption(category)} style={{ cursor: "pointer" }}>
+                <div
+                  className="nav-link"
+                  onClick={() => setOption(category)}
+                  style={{ cursor: "pointer" }}
+                >
                   {category}
                 </div>
               </li>
@@ -66,16 +72,22 @@ const Navbar = ({ toggleSideMenu, setOption}) => {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button className="btn btn-outline-success  me-2" type="submit">
               Search
             </button>
-            <div class=" position-relative">
+            <div
+              className=" position-relative"
+              onClick={() => {
+                navigate("/cart");
+              }}
+              style={{ cursor: "pointer" }}
+            >
               <MdOutlineShoppingCart size={40} />
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                0
+                {cartItems.length}
               </span>
             </div>
           </form>
