@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+Mini E-Commerce Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern eCommerce web application built using React, Redux, and Bootstrap, powered by the DummyJSON API for product data.
 
-## Available Scripts
+🚀 Live Demo
 
-In the project directory, you can run:
+https://snapupshop.netlify.app/
 
-### `npm start`
+🛠️ Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+⚛️ React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🗂️ Redux (State Management)
 
-### `npm test`
+🎨 Bootstrap 5
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🌐 DummyJSON API
 
-### `npm run build`
+🔄 React Router
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✨ Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ Browse all products
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Filter products by category
 
-### `npm run eject`
+ Search functionality
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Add / Remove items from cart
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Increase / Decrease quantity
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ Cart persistence
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ View product details
 
-## Learn More
+Responsive design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Category filtering via URL query params
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+API Used
 
-### Code Splitting
+Data is fetched from:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+👉 https://dummyjson.com
 
-### Analyzing the Bundle Size
+Examples:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Get all products
+https://dummyjson.com/products
 
-### Making a Progressive Web App
+Get categories
+https://dummyjson.com/products/categories
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Filter by category
+https://dummyjson.com/products/category/{category}
 
-### Advanced Configuration
+🗂️ Project Structure
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── SideMenu.jsx
+│   ├── ProductCard.jsx
+│   ├── Cart.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── ProductDetails.jsx
+│
+├── redux/
+│   ├── store.js
+│   ├── cartSlice.js
+│
+├── services/
+│   ├── productsService.js
+│
+└── App.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+State Management
 
-### Deployment
+Redux is used for:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Managing cart items
 
-### `npm run build` fails to minify
+Updating quantities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Removing products
+
+Persisting cart data
+
+📦 Installation
+git clone https://github.com/Basant-abde;naser/snapUp-react-shop-app.git
+cd snapUp-react-shop-app
+npm install
+npm start
+
+ Future Improvements
+
+
+💳 Checkout & Payment Integration
+
+❤️ Wishlist Feature
+
+🧾 Order History
+
+🔎 Advanced filtering & sorting
+
+👩‍💻 Author
+
+Basant Abdelnaser
+Frontend Developer
+
+
+
