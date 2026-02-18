@@ -1,121 +1,124 @@
-Mini E-Commerce Store
+# 🛍️ SnapUp – Mini E-Commerce Store
 
+A modern and responsive eCommerce web application built with **React** and **Redux**, styled using **Bootstrap 5**, and powered by the **DummyJSON API** for dynamic product data.
 
-A modern eCommerce web application built using React, Redux, and Bootstrap, powered by the DummyJSON API for product data.
+The application demonstrates core eCommerce functionality including product browsing, category filtering, cart management, and state persistence.
 
-🚀 Live Demo
+---
 
+## 🚀 Live Demo
 
-  https://snapupshop.netlify.app/
+🔗 https://snapupshop.netlify.app/
 
-🛠️ Built With
+---
 
+## 🧰 Tech Stack
 
+- **React** – Component-based UI development  
+- **Redux Toolkit** – Global state management  
+- **React Router** – Client-side routing  
+- **Bootstrap 5** – Responsive UI styling  
+- **DummyJSON API** – Mock backend for products data  
 
-   ⚛️ React
-   
-   🗂️ Redux (State Management)
-   
-   🎨 Bootstrap 5
-   
-   🌐 DummyJSON API
-   
-   🔄 React Router
-   
-   ✨ Features
+---
 
+## ✨ Key Features
 
+### 🛒 Product Management
+- Browse all available products
+- View detailed product information
+- Filter products by category
+- Search products by name
+- Category filtering via URL query parameters (`?category=`)
 
- Browse all products
+### 🧺 Cart Functionality
+- Add items to cart
+- Remove items from cart
+- Increase / decrease product quantity
+- Real-time total price calculation
+- Cart state persistence
 
-Filter products by category
+### 🎨 UI & UX
+- Fully responsive design
+- Clean Bootstrap layout
+- Side menu with overlay interaction
+- Smooth navigation experience
 
- Search functionality
+---
 
-Add / Remove items from cart
+## 🌐 API Integration
 
- Increase / Decrease quantity
+All product data is fetched dynamically from:
 
- Cart persistence
+🔗 https://dummyjson.com
 
- View product details
+### Example Endpoints
 
-Responsive design
+| Purpose | Endpoint |
+|---------|----------|
+| Get all products | `https://dummyjson.com/products` |
+| Get categories | `https://dummyjson.com/products/categories` |
+| Filter by category | `https://dummyjson.com/products/category/{category}` |
 
-Category filtering via URL query params
+---
 
-API Used
-
-Data is fetched from:
-
-👉 https://dummyjson.com
-
-Examples:
-
-Get all products
-https://dummyjson.com/products
-
-Get categories
-https://dummyjson.com/products/categories
-
-Filter by category
-https://dummyjson.com/products/category/{category}
-
-🗂️ Project Structure
+## 🗂️ Project Structure
 src/
 │
 ├── components/
-│   ├── Navbar.jsx
-│   ├── SideMenu.jsx
-│   ├── ProductCard.jsx
-│   ├── Cart.jsx
+│ ├── Navbar.jsx
+│ ├── SideMenu.jsx
+│ ├── ProductCard.jsx
+│ ├── Cart.jsx
 │
 ├── pages/
-│   ├── Home.jsx
-│   ├── ProductDetails.jsx
+│ ├── Home.jsx
+│ ├── ProductDetails.jsx
 │
 ├── redux/
-│   ├── store.js
-│   ├── cartSlice.js
+│ ├── store.js
+│ ├── cartSlice.js
 │
 ├── services/
-│   ├── productsService.js
+│ ├── productsService.js
 │
 └── App.js
 
-State Management
 
-Redux is used for:
 
-Managing cart items
+---
 
-Updating quantities
+## 🧠 State Management (Redux)
 
-Removing products
+Redux is used to:
 
-Persisting cart data
+- Manage cart items globally
+- Handle quantity updates
+- Remove products from cart
+- Maintain application state consistency
 
-📦 Installation
-git clone https://github.com/Basant-abde;naser/snapUp-react-shop-app.git
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+git clone https://github.com/Basant-abdelnaser/snapUp-react-shop-app.git
 cd snapUp-react-shop-app
 npm install
 npm start
+```
+The app will run locally at:
+```bash 
+ http://localhost:3000
+```
+🔮 Future Enhancements
 
- Future Improvements
+💳 Checkout & payment integration
 
+❤️ Wishlist feature
 
-💳 Checkout & Payment Integration
-
-❤️ Wishlist Feature
-
-🧾 Order History
+🧾 Order history
 
 🔎 Advanced filtering & sorting
-
-👩‍💻 Author
-
-Basant Abdelnaser
-Frontend Developer
-
 
 
