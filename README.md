@@ -60,31 +60,6 @@ All product data is fetched dynamically from:
 | Get categories | `https://dummyjson.com/products/categories` |
 | Filter by category | `https://dummyjson.com/products/category/{category}` |
 
----
-
-## 🗂️ Project Structure
-
-
-src/
-│
-├── components/
-│ ├── Navbar.jsx
-│ ├── SideMenu.jsx
-│ ├── ProductCard.jsx
-│ ├── Cart.jsx
-│
-├── pages/
-│ ├── Home.jsx
-│ ├── ProductDetails.jsx
-│
-├── redux/
-│ ├── store.js
-│ ├── cartSlice.js
-│
-├── services/
-│ ├── productsService.js
-│
-└── App.js
 
 
 
