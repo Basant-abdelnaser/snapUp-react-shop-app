@@ -58,7 +58,13 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
               <li className="nav-item" key={index}>
                 <div
                   className="nav-link"
-                  onClick={() => setOption(category)}
+                  onClick={() => {
+                    navigate("/");
+                    setOption(category);
+
+                    // navigate("/", { state: { category } });
+                     navigate(`/?category=${category}`);
+                  }}
                   style={{ cursor: "pointer" }}
                 >
                   {category}

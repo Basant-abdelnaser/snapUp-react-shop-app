@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+
 import SideMenu from "../../components/SideMenu";
 import ProductCard from "../../components/ProductCard";
 import { getProducts } from "../../services/productsService";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Carousel from "../../components/Carousel";
 
 const Home = () => {
@@ -11,8 +11,11 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [sideMenuOption, setSideMenuOption] = useState("");
+  // const menuRef = useRef();
+
 
   const toggleSideMenu = () => setSideMenu(!sidemenu);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -32,7 +35,6 @@ const Home = () => {
 
   const categories = [...new Set(products.map((p) => p.category))];
 
-  const location = useLocation();
   const query = new URLSearchParams(location.search).get("query") || "";
 
   // ⭐ UPDATED: search filter applied first
@@ -48,14 +50,21 @@ const Home = () => {
         )
       : filteredBySearch;
 
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+    if (categoryFromUrl) {
+      setSideMenuOption(categoryFromUrl);
+    }
+  }, [searchParams]);
   return (
     <div>
-      <Navbar toggleSideMenu={toggleSideMenu} setOption={setSideMenuOption} />
+      {/* <Navbar toggleSideMenu={toggleSideMenu} setOption={setSideMenuOption} /> */}
 
       <SideMenu
         sidemenu={sidemenu}
-        setOption={setSideMenuOption}
         toggleSideMenu={toggleSideMenu}
+        // menuRef={menuRef}
       />
       <Carousel />
 

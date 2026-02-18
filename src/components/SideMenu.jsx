@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getAllCategories } from "../services/productsService";
+import { useNavigate } from "react-router-dom";
 
-const SideMenu = ({ sidemenu, setOption, toggleSideMenu }) => {
+const SideMenu = ({ sidemenu, toggleSideMenu }) => {
   const [categories, setCategories] = useState([]);
+  const navigation = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -19,6 +21,7 @@ const SideMenu = ({ sidemenu, setOption, toggleSideMenu }) => {
   console.log(sidemenu);
   return (
     <div
+      // ref={menuRef}
       className="overflow-scroll position-fixed bg-white shadow w-sm-50"
       style={{
         top: "77.7px",
@@ -38,7 +41,8 @@ const SideMenu = ({ sidemenu, setOption, toggleSideMenu }) => {
             style={{ cursor: "pointer" }}
             key={index}
             onClick={() => {
-              setOption(category);
+              // setOption(category);
+              navigation(`/?category=${category}`);
               toggleSideMenu();
             }}
           >

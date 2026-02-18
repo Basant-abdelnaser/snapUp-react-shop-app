@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCartItems, updateCart } from "../services/cartService";
+import { getCartItems} from "../services/cartService";
 import { addToCart } from "../services/cartService";
 
 // Fetch Cart

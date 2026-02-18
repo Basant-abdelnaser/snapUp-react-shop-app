@@ -20,7 +20,7 @@ function App() {
     <div>
       <Routes>
         {/* Layout routes */}
-        <Route element={<HomeLayout />}>
+        <Route element={<HomeLayout/>}>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />

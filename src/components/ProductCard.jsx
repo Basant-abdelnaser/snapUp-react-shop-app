@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartThunk,
   deleteItemThunk,
-  removeFromCart,
+
 } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
-import { errorToast, successToast } from "./Toast";
+import {  successToast } from "./Toast";
 const ProductCard = ({ product }) => {
   const calcRealPrice = (price, discountPercentage) => {
     return (price + price * discountPercentage).toFixed(2);

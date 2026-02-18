@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../services/productsService";
 import { BsCartCheck } from "react-icons/bs";
