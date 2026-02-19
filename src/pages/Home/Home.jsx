@@ -86,7 +86,7 @@ const Home = () => {
                 <h5 className="text-muted">No products found</h5>
               </div>
             ) : (
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+              <div className="row  justify-content-center justify-content-lg-start g-4">
                 {finalProducts.map((product) => (
                   <div className="col" key={product.id}>
                     <ProductCard product={product} />
@@ -135,7 +135,7 @@ const Home = () => {
                 <h5 className="text-muted">No products found</h5>
               </div>
             ) : (
-              <div className="row  justify-content-sm-center justify-content-lg-start g-4">
+              <div className="row  justify-content-center justify-content-lg-start g-4">
                 {finalProducts.map((product) => (
                   <div className="col-auto" key={product.id}>
                     <ProductCard product={product} />
