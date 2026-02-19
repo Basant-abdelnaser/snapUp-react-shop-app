@@ -25,9 +25,8 @@ const Cart = () => {
   }
 
   return (
-    <div className="container mt-5">
+    <div className="container " >
       <h2 className="mb-4">Shopping Cart</h2>
-
       <div className="table-responsive shadow-sm rounded">
         <table className="table align-middle text-center">
           <thead className="table-light">
@@ -79,13 +78,7 @@ const Cart = () => {
         </table>
       </div>
 
-      <div className="d-flex justify-content-between mt-4 align-items-center">
-        {/* <div className="card p-3 shadow-sm" style={{ width: "300px" }}>
-          <h5>Total:</h5>
-          <h4 className="text-primary">${totalPrice.toFixed(2)}</h4>
-          <button className="btn btn-primary mt-3 w-100">Checkout</button>
-          
-        </div> */}
+      <div className="d-flex flex-column gap-3 flex-sm-row justify-content-between mt-4 align-items-center">
         <div>
           <button
             className="btn  p-3 btn-outline-danger "

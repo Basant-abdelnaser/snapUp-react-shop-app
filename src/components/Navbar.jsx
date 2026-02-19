@@ -33,91 +33,88 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
   const cartItems = useSelector((state) => state.cart.items || []);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm p-3">
       <div className="container">
-        <Link className="navbar-brand d-flex" to="/">
-          <div onClick={toggleSideMenu}>
-            <CgMenuRight size={35} className="me-2 text-primary" />
+        {/* Logo + Menu */}
+        <div className="d-flex align-items-center">
+          <div onClick={toggleSideMenu} style={{ cursor: "pointer" }}>
+            <CgMenuRight size={30} className="me-2 text-primary" />
           </div>
-          Snap<span className="fw-bold text-primary">Up</span>
-        </Link>
 
+          <Link className="navbar-brand mb-0" to="/">
+            Snap<span className="fw-bold text-primary">Up</span>
+          </Link>
+        </div>
+
+        {/* Toggler */}
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          data-bs-target="#navbarContent"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <div className="collapse navbar-collapse" id="navbarContent">
+          {/* Categories */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {firstFour.map((category, index) => (
               <li className="nav-item" key={index}>
-                <div
+                <span
                   className="nav-link"
-                  onClick={() => {
-                    navigate("/");
-                    setOption(category);
-
-                    // navigate("/", { state: { category } });
-                    navigate(`/?category=${category}`);
-                  }}
                   style={{ cursor: "pointer" }}
+                  onClick={() => navigate(`/?category=${category}`)}
                 >
                   {category}
-                </div>
+                </span>
               </li>
             ))}
           </ul>
-          <form
-            className="d-flex w-50 align-items-center"
-            role="search"
-            onSubmit={handleSearch}
-          >
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button className="btn btn-outline-success  me-2" type="submit">
-              Search
-            </button>
 
+          {/* Right Section */}
+          <div className="d-flex flex-column flex-lg-row align-items-center gap-3 w-100 w-lg-auto">
+            {/* Search */}
+            <form className="d-flex w-100 w-lg-auto" onSubmit={handleSearch}>
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className="btn btn-outline-primary" type="submit">
+                Search
+              </button>
+            </form>
+
+            {/* Cart */}
             <div
-              className=" position-relative"
-              onClick={() => {
-                navigate("/cart");
-              }}
+              className="position-relative"
               style={{ cursor: "pointer" }}
+              onClick={() => navigate("/cart")}
             >
-              <MdOutlineShoppingCart size={40} />
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                {cartItems.length}
-              </span>
+              <MdOutlineShoppingCart size={30} />
+              {cartItems.length > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                  {cartItems.length}
+                </span>
+              )}
             </div>
-            <div className="ms-4">
-              <Link
-                to={"/login"}
-                className="text-primary fw-bold"
-                style={{ textDecoration: "none", fontSize: "20px" }}
-              >
-                {" "}
-                {isAuthenticated ? "Logout" : "Login"}
-              </Link>
-            </div>
-            <div className="ms-4">
-              <p className="text-white bg-primary rounded p-2">
-                {isAuthenticated ? user.username : "Guest"}
-              </p>
-            </div>
-          </form>
+
+            {/* Auth */}
+            <Link
+              to="/login"
+              className="text-decoration-none fw-bold text-primary"
+            >
+              {isAuthenticated ? "Logout" : "Login"}
+            </Link>
+
+            {/* Username */}
+            <span className="badge bg-primary">
+              {isAuthenticated ? user.username : "Guest"}
+            </span>
+          </div>
         </div>
       </div>
     </nav>
