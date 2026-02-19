@@ -9,6 +9,7 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const { user, isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -63,7 +64,7 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
                     setOption(category);
 
                     // navigate("/", { state: { category } });
-                     navigate(`/?category=${category}`);
+                    navigate(`/?category=${category}`);
                   }}
                   style={{ cursor: "pointer" }}
                 >
@@ -72,7 +73,11 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
               </li>
             ))}
           </ul>
-          <form className="d-flex w-50" role="search" onSubmit={handleSearch}>
+          <form
+            className="d-flex w-50 align-items-center"
+            role="search"
+            onSubmit={handleSearch}
+          >
             <input
               className="form-control me-2"
               type="search"
@@ -84,6 +89,7 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
             <button className="btn btn-outline-success  me-2" type="submit">
               Search
             </button>
+
             <div
               className=" position-relative"
               onClick={() => {
@@ -95,6 +101,21 @@ const Navbar = ({ toggleSideMenu, setOption }) => {
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                 {cartItems.length}
               </span>
+            </div>
+            <div className="ms-4">
+              <Link
+                to={"/login"}
+                className="text-primary fw-bold"
+                style={{ textDecoration: "none", fontSize: "20px" }}
+              >
+                {" "}
+                {isAuthenticated ? "Logout" : "Login"}
+              </Link>
+            </div>
+            <div className="ms-4">
+              <p className="text-white bg-primary rounded p-2">
+                {isAuthenticated ? user.username : "Guest"}
+              </p>
             </div>
           </form>
         </div>

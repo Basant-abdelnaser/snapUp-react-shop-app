@@ -6,6 +6,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 import AuthLayout from "../../components/AuthLayout";
 import { loginUser } from "../../services/authService";
 import { errorToast, successToast } from "../../components/Toast";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const dispatch = useDispatch();
 
   const schema = joi.object({
     username: joi.string().required().messages({
@@ -51,6 +54,7 @@ const Login = () => {
       localStorage.setItem("token", data.accessToken);
       navigate("/");
       successToast("Login successful");
+      dispatch(login(data));
     } catch (err) {
       console.log(err);
       errorToast(err.response.data.message);
